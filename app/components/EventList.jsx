@@ -1,29 +1,40 @@
-import React from 'react'
-
-const events = [
-    {id: 1, title: "Nacional vs. Millonarios", date: "2025-11-16", location: " Estadio Atanasio Girardot, Medellín", price: "$25.000 COP",},
-    {id: 2, title: "Concierto de Rock", date: "2025-12-05", location: "Parque Simón Bolívar, Bogotá", price: "$50.000 COP",},
-    {id: 3, title: "Feria del Libro", date: "2026-01-20", location: "Corferias, Bogotá", price: "Entrada Libre",},
-    {id: 4, title: "Festival de Jazz", date: "2026-02-14", location: "Plaza Mayor, Medellín", price: "$30.000 COP",},
-    {id: 5, title: "Obra de Teatro 'Hamlet'", date: "2026-03-10", location: "Teatro Colón, Bogotá", price: "$40.000 COP",},
-    
-]
+import React from "react";
+import EventCard from "./EventCard";
 
 export default function EventList() {
+  const events = [
+    {
+      id: 1,
+      title: "Concierto de Rock",
+      date: "2025-03-12",
+      location: "Estadio Central",
+      price: 120.0,
+    },
+    {
+      id: 2,
+      title: "Feria de Tecnología",
+      date: "2025-04-05",
+      location: "Centro de Convenciones",
+      price: 35.5,
+    },
+    {
+      id: 3,
+      title: "Exposición de Arte",
+      date: "2025-06-20",
+      location: "Museo Regional",
+      price: 15.99,
+    },
+  ];
+
   return (
-    <>
+    <div className="max-w-5xl mx-auto p-6">
+      <h1 className="text-3xl font-bold text-center mb-8">Eventos Disponibles</h1>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {events.map((event) => (
-          
-            <div
-              key={events.id}
-              className="bg-white shadow-md rounded-lg p-4 mb-4 flex justify-between items-center">
-              <div>
-                <h2 className="text-xl text-black font-semibold">{event.title}</h2>
-                <p className="text-blue-600">Categoría: {event.category}</p>
-              </div>
-              <p className="text-lg font-bold text-green-600">${event.price}</p>
-          </div>
+          <EventCard key={event.id} event={event} />
         ))}
-    </>
-  )
+      </div>
+    </div>
+  );
 }
