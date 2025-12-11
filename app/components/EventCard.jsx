@@ -1,6 +1,9 @@
 import React from "react";
 
-export default function EventCard({ title, date, location, price }) {
+export default function EventCard({ event }) {
+  // Desestructuramos el objeto event de forma segura
+  const { title, date, location, price } = event || {};
+
   // --- Manejo seguro de fecha ---
   let formattedDate = "Fecha no disponible";
   if (date) {
